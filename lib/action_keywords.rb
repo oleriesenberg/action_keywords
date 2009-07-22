@@ -12,7 +12,8 @@ module ActionKeywords
   
   module ControllerHelper
     def keywords(keywords = [])
-      @meta_keywords = keywords.to_a.join(', ')
+      @meta_keywords = keywords.join(', ') if keywords.is_a?(Array)
+      @meta_keywords = keywords if keywords.is_a?(String)
     end
   end
 end
